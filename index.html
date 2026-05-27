@@ -4,10 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Nalam Mini Mart Snacks | Evening Snacks & Fast Delivery</title>
+  <title>Nalam Mini Mart Snacks | Hot & Crispy Evening Snacks</title>
 
-  <meta name="description" content="Hot & Crispy Evening Snacks. Visit Nalam Mini Mart Snacks or order from home through WhatsApp. Veg & Non-Veg snacks with fast local delivery." />
-  <meta name="keywords" content="snacks shop near me, food delivery, evening snacks, mini mart snacks, chicken snacks, veg snacks, snacks stall" />
+  <meta name="description" content="Order hot and crispy evening snacks from Nalam Mini Mart Snacks. Veg snacks, chicken snacks, burgers, popcorn, fries and fast WhatsApp delivery." />
+
+  <meta name="keywords" content="snacks shop near me, evening snacks, chicken snacks, veg snacks, food delivery, mini mart snacks, snacks stall, hot snacks" />
+
   <meta name="theme-color" content="#ff6b00" />
 
   <script src="https://cdn.tailwindcss.com"></script>
@@ -18,48 +20,63 @@
     }
 
     body{
-      font-family: Arial, sans-serif;
-      background:#080808;
+      background:#090909;
       overflow-x:hidden;
+      font-family:Inter, sans-serif;
     }
 
     .glass{
       background:rgba(255,255,255,0.08);
       backdrop-filter:blur(14px);
-      border:1px solid rgba(255,255,255,0.1);
+      border:1px solid rgba(255,255,255,0.08);
     }
 
     .glow-btn{
-      box-shadow:0 0 20px rgba(255,140,0,0.45);
+      box-shadow:0 0 20px rgba(255,120,0,0.45);
+      transition:0.3s ease;
     }
 
-    .orange-glow{
-      box-shadow:0 0 35px rgba(255,106,0,0.4);
+    .glow-btn:hover{
+      transform:translateY(-3px) scale(1.03);
+      box-shadow:0 0 35px rgba(255,120,0,0.7);
     }
 
     .card-hover{
-      transition:0.4s ease;
+      transition:0.35s ease;
     }
 
     .card-hover:hover{
-      transform:translateY(-6px) scale(1.01);
+      transform:translateY(-10px);
     }
 
     .floating{
-      animation:float 4s ease-in-out infinite;
+      animation:float 5s ease-in-out infinite;
+    }
+
+    @keyframes float{
+      0%,100%{transform:translateY(0)}
+      50%{transform:translateY(-12px)}
     }
 
     .pulse-glow{
-      animation:pulseGlow 2s infinite;
+      animation:pulse 2s infinite;
     }
 
-    .bounce-soft{
-      animation:bounceSoft 2.2s infinite;
+    @keyframes pulse{
+      0%{
+        box-shadow:0 0 0 0 rgba(255,120,0,0.7);
+      }
+      70%{
+        box-shadow:0 0 0 18px rgba(255,120,0,0);
+      }
+      100%{
+        box-shadow:0 0 0 0 rgba(255,120,0,0);
+      }
     }
 
     .reveal{
       opacity:0;
-      transform:translateY(50px);
+      transform:translateY(40px);
       transition:all 0.8s ease;
     }
 
@@ -68,208 +85,151 @@
       transform:translateY(0);
     }
 
-    @keyframes float{
-      0%,100%{
+    .particle{
+      position:absolute;
+      border-radius:999px;
+      filter:blur(2px);
+      opacity:0.5;
+      animation:floatParticle linear infinite;
+    }
+
+    @keyframes floatParticle{
+      from{
         transform:translateY(0px);
       }
-      50%{
-        transform:translateY(-14px);
+      to{
+        transform:translateY(-120vh);
       }
     }
 
-    @keyframes pulseGlow{
-      0%{
-        box-shadow:0 0 0 rgba(255,115,0,0.5);
-      }
-      50%{
-        box-shadow:0 0 35px rgba(255,115,0,0.8);
-      }
-      100%{
-        box-shadow:0 0 0 rgba(255,115,0,0.5);
-      }
-    }
-
-    @keyframes bounceSoft{
-      0%,100%{
-        transform:translateY(0);
-      }
-      50%{
-        transform:translateY(-5px);
-      }
-    }
-
-    .food-particle{
-      position:absolute;
-      border-radius:9999px;
-      background:linear-gradient(to right,#ff7b00,#ffdd00);
-      opacity:0.3;
-      filter:blur(6px);
-      animation:float 5s infinite ease-in-out;
-    }
-
-    .hide-scrollbar::-webkit-scrollbar{
+    .hide-scroll::-webkit-scrollbar{
       display:none;
     }
 
-    .cart-open{
-      transform:translateX(0)!important;
-    }
-
-    .gradient-text{
-      background:linear-gradient(to right,#ffb703,#ff4d00);
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-    }
-
     .active-nav{
-      background:linear-gradient(to right,#ff7b00,#ff3c00);
-      color:white;
+      background:linear-gradient(to right,#ff7b00,#ffb700);
+      color:black;
     }
-
   </style>
 </head>
 
 <body class="text-white">
 
-  <!-- Floating Background -->
+  <!-- Floating Particles -->
   <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
-    <div class="food-particle w-44 h-44 top-10 left-4"></div>
-    <div class="food-particle w-32 h-32 top-96 right-4"></div>
-    <div class="food-particle w-24 h-24 bottom-20 left-20"></div>
-    <div class="food-particle w-52 h-52 bottom-40 right-10"></div>
+    <div class="particle w-5 h-5 bg-orange-500 left-[10%] top-[90%]" style="animation-duration:13s"></div>
+    <div class="particle w-3 h-3 bg-yellow-400 left-[25%] top-[100%]" style="animation-duration:9s"></div>
+    <div class="particle w-4 h-4 bg-red-500 left-[50%] top-[100%]" style="animation-duration:11s"></div>
+    <div class="particle w-6 h-6 bg-orange-300 left-[70%] top-[95%]" style="animation-duration:15s"></div>
+    <div class="particle w-4 h-4 bg-yellow-500 left-[85%] top-[100%]" style="animation-duration:10s"></div>
   </div>
 
-  <!-- Sticky Top -->
-  <div class="fixed top-0 left-0 right-0 z-50 glass border-b border-orange-500/20">
-    <div class="max-w-7xl mx-auto px-3 py-3 flex items-center justify-between gap-2">
+  <!-- HERO -->
+  <section class="relative min-h-screen flex flex-col justify-center px-5 pt-24 pb-28 overflow-hidden">
 
-      <a href="tel:9443992518"
-      class="flex-1 text-center bg-gradient-to-r from-orange-500 to-red-500 px-4 py-3 rounded-2xl font-bold glow-btn text-sm">
-        📞 Call to Order
-      </a>
+    <div class="absolute inset-0 bg-gradient-to-b from-orange-900/20 via-black to-black"></div>
 
-      <a href="https://maps.app.goo.gl/qifggqfKZqeMwpif7?g_st=ac"
-      target="_blank"
-      class="flex-1 text-center glass px-4 py-3 rounded-2xl font-bold border border-orange-400/40 text-sm">
-        📍 Get Direction
-      </a>
+    <div class="relative z-10 max-w-6xl mx-auto">
 
-      <div class="hidden md:flex font-bold text-orange-300">
-        94439 92518
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-6">
+        <span class="w-2 h-2 bg-green-400 rounded-full animate-ping"></span>
+        <p class="text-sm">Fast Evening Snacks Delivery</p>
+      </div>
+
+      <h1 class="text-5xl md:text-7xl font-black leading-tight">
+        <span class="text-orange-400">Nalam</span><br>
+        Mini Mart Snacks
+      </h1>
+
+      <p class="mt-6 text-lg text-gray-300 max-w-2xl leading-relaxed">
+        Hot & Crispy Snacks • Fast Delivery • Order From Home • Visit Our Shop • Crispy & Tasty Every Time
+      </p>
+
+      <div class="flex flex-wrap gap-4 mt-8">
+
+        <a href="#menu"
+          class="glow-btn pulse-glow bg-gradient-to-r from-orange-500 to-yellow-400 text-black font-bold px-8 py-4 rounded-2xl text-lg">
+          Explore Menu
+        </a>
+
+        <a href="tel:9443992518"
+          class="glass px-8 py-4 rounded-2xl font-semibold hover:bg-white/10 transition">
+          Call to Order
+        </a>
+
+      </div>
+
+      <!-- Hero Quick Nav -->
+      <div class="mt-8 flex gap-4 flex-wrap">
+
+        <a href="#veg-section"
+          class="glass hover:bg-orange-500 hover:text-black transition px-6 py-3 rounded-full font-semibold">
+          Veg Items
+        </a>
+
+        <a href="#nonveg-section"
+          class="glass hover:bg-red-500 hover:text-black transition px-6 py-3 rounded-full font-semibold">
+          Non-Veg Items
+        </a>
+
+      </div>
+
+      <!-- Floating Food Cards -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16">
+
+        <div class="glass rounded-3xl p-4 floating">
+          <img src="images/french-fries.jpg" class="rounded-2xl h-32 w-full object-cover">
+          <p class="mt-3 font-bold">French Fries</p>
+        </div>
+
+        <div class="glass rounded-3xl p-4 floating" style="animation-delay:1s">
+          <img src="images/chicken-popcorn.jpg" class="rounded-2xl h-32 w-full object-cover">
+          <p class="mt-3 font-bold">Chicken Popcorn</p>
+        </div>
+
+        <div class="glass rounded-3xl p-4 floating" style="animation-delay:2s">
+          <img src="images/veg-popcorn.jpg" class="rounded-2xl h-32 w-full object-cover">
+          <p class="mt-3 font-bold">Veg Popcorn</p>
+        </div>
+
+        <div class="glass rounded-3xl p-4 floating" style="animation-delay:3s">
+          <img src="images/chicken-burger.jpg" class="rounded-2xl h-32 w-full object-cover">
+          <p class="mt-3 font-bold">Chicken Burger</p>
+        </div>
+
       </div>
 
     </div>
-  </div>
+  </section>
 
-  <!-- Hero -->
-  <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 px-4">
+  <!-- OFFERS -->
+  <section class="px-5 py-16 reveal">
 
-    <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 items-center z-10">
+    <div class="max-w-6xl mx-auto">
 
-      <!-- Left -->
-      <div class="space-y-7 reveal">
+      <div class="text-center">
+        <h2 class="text-4xl font-black">
+          Crazy Snack Offers 🔥
+        </h2>
 
-        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-orange-400/20">
-          <span class="w-2 h-2 bg-green-400 rounded-full animate-ping"></span>
-          <span class="text-sm">Fast Evening Snacks Delivery</span>
-        </div>
-
-        <h1 class="text-5xl md:text-7xl font-black leading-tight">
-          <span class="gradient-text">Nalam Mini Mart Snacks</span>
-        </h1>
-
-        <p class="text-xl md:text-2xl text-orange-100 leading-relaxed">
-          Hot & Crispy Snacks • Fast Delivery • Order From Home • Visit Our Shop
+        <p class="text-gray-400 mt-3">
+          Order more. Unlock more.
         </p>
-
-        <div class="flex flex-wrap gap-3 text-sm">
-          <div class="glass px-4 py-2 rounded-full">🔥 Crispy & Tasty Every Time</div>
-          <div class="glass px-4 py-2 rounded-full">🍔 Veg & Non-Veg</div>
-          <div class="glass px-4 py-2 rounded-full">⚡ Evening Snacks</div>
-        </div>
-
-        <div class="flex flex-col sm:flex-row gap-4">
-
-          <a href="#menu"
-          class="bg-gradient-to-r from-yellow-400 to-orange-500 text-black font-black px-8 py-4 rounded-2xl text-lg glow-btn pulse-glow text-center">
-            🍟 Explore Menu
-          </a>
-
-          <a href="tel:9443992518"
-          class="glass px-8 py-4 rounded-2xl font-bold text-center border border-orange-400/30">
-            📞 Call Now
-          </a>
-
-        </div>
-
-        <!-- Quick Nav -->
-        <div class="flex gap-3 flex-wrap pt-2">
-
-          <a href="#veg-section"
-          class="bg-white/10 hover:bg-orange-500 transition-all px-5 py-3 rounded-full font-bold border border-orange-400/30 bounce-soft">
-            🥦 Veg Items
-          </a>
-
-          <a href="#nonveg-section"
-          class="bg-white/10 hover:bg-red-500 transition-all px-5 py-3 rounded-full font-bold border border-red-400/30 bounce-soft">
-            🍗 Non-Veg Items
-          </a>
-
-        </div>
-
       </div>
 
-      <!-- Right -->
-      <div class="relative reveal">
+      <div class="grid md:grid-cols-2 gap-6 mt-10">
 
-        <div class="relative w-full max-w-lg mx-auto floating">
-
-          <div class="absolute inset-0 bg-orange-500 blur-[120px] opacity-30 rounded-full"></div>
-
-          <img
-          src="images/hero-snacks.png"
-          alt="Snacks"
-          class="relative z-10 w-full drop-shadow-[0_0_40px_rgba(255,120,0,0.6)]">
-
+        <div class="rounded-3xl p-8 bg-gradient-to-br from-orange-500 to-red-500 shadow-2xl">
+          <h3 class="text-3xl font-black">FREE Limonata</h3>
+          <p class="mt-2 text-white/90">
+            On orders above ₹180
+          </p>
         </div>
 
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- Timing Notice -->
-  <section class="px-4 pb-8">
-    <div id="timingNotice"
-    class="max-w-3xl mx-auto rounded-3xl p-5 text-center glass border border-orange-500/20"></div>
-  </section>
-
-  <!-- Offers -->
-  <section class="py-10 px-4 reveal">
-
-    <div class="max-w-7xl mx-auto">
-
-      <div class="text-center mb-10">
-        <h2 class="text-4xl font-black gradient-text">🔥 Exciting Offers</h2>
-        <p class="text-orange-100 mt-3">Order more. Unlock more.</p>
-      </div>
-
-      <div class="grid md:grid-cols-2 gap-6">
-
-        <div class="rounded-3xl p-8 bg-gradient-to-r from-orange-500 to-red-500 orange-glow relative overflow-hidden">
-          <div class="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full blur-2xl"></div>
-
-          <h3 class="text-3xl font-black mb-3">FREE Limonata 🥤</h3>
-          <p class="text-lg">Get FREE Limonata bottle on orders above ₹180</p>
-        </div>
-
-        <div class="rounded-3xl p-8 bg-gradient-to-r from-yellow-500 to-orange-500 text-black relative overflow-hidden">
-          <div class="absolute top-0 right-0 w-40 h-40 bg-white/20 rounded-full blur-2xl"></div>
-
-          <h3 class="text-3xl font-black mb-3">FREE Drink + FREE Delivery 🚚</h3>
-          <p class="text-lg font-semibold">
-            Above ₹300 get FREE Pepsi / Coca-Cola / Thums Up + FREE Delivery
+        <div class="rounded-3xl p-8 bg-gradient-to-br from-yellow-400 to-orange-500 text-black shadow-2xl">
+          <h3 class="text-3xl font-black">FREE Cold Drink + FREE Delivery</h3>
+          <p class="mt-2">
+            Orders above ₹300
           </p>
         </div>
 
@@ -279,61 +239,55 @@
 
   </section>
 
-  <!-- Menu -->
-  <section id="menu" class="py-20 px-4 relative">
+  <!-- MENU -->
+  <section id="menu" class="px-5 py-20">
 
     <div class="max-w-7xl mx-auto">
 
-      <div class="text-center mb-10 reveal">
-        <h2 class="text-5xl font-black gradient-text">
-          Explore Our Menu
+      <div class="text-center reveal">
+        <h2 class="text-5xl font-black">
+          Our Snack Menu 🍟
         </h2>
 
-        <p class="mt-4 text-orange-100">
-          Fresh Evening Snacks • Veg & Non-Veg
+        <p class="text-gray-400 mt-4">
+          Hot • Crispy • Loaded with Flavor
         </p>
       </div>
 
-      <!-- Menu Nav -->
-      <div class="sticky top-20 z-30 mb-10">
-        <div class="glass rounded-3xl p-3 flex gap-3 overflow-auto hide-scrollbar">
+      <!-- MENU NAV -->
+      <div class="flex justify-center gap-4 mt-10 sticky top-3 z-30">
 
-          <a href="#veg-section"
-          class="active-nav whitespace-nowrap px-6 py-3 rounded-2xl font-bold">
-            🥦 Veg Items
-          </a>
+        <a href="#veg-section"
+          class="glass active-nav px-6 py-3 rounded-full font-bold">
+          Veg Items
+        </a>
 
-          <a href="#nonveg-section"
-          class="whitespace-nowrap px-6 py-3 rounded-2xl font-bold bg-white/10">
-            🍗 Non-Veg Items
-          </a>
+        <a href="#nonveg-section"
+          class="glass px-6 py-3 rounded-full font-bold hover:bg-red-500 hover:text-black transition">
+          Non-Veg Items
+        </a>
 
-        </div>
       </div>
 
       <!-- VEG -->
-      <div id="veg-section" class="mb-20">
+      <div id="veg-section" class="mt-20 reveal">
 
-        <div class="flex items-center gap-3 mb-8 reveal">
-          <div class="w-4 h-14 bg-green-400 rounded-full"></div>
-          <h3 class="text-4xl font-black">Veg Snacks</h3>
-        </div>
+        <h3 class="text-4xl font-black text-orange-400 mb-8">
+          Veg Snacks 🌽
+        </h3>
 
-        <div id="vegItems"
-        class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+        <div id="veg-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
 
       </div>
 
       <!-- NON VEG -->
-      <div id="nonveg-section">
+      <div id="nonveg-section" class="mt-24 reveal">
 
-        <div class="flex items-center gap-3 mb-8 reveal">
-          <div class="w-4 h-14 bg-red-400 rounded-full"></div>
-          <h3 class="text-4xl font-black">Non-Veg Snacks</h3>
-        </div>
+        <h3 class="text-4xl font-black text-red-400 mb-8">
+          Non-Veg Snacks 🍗
+        </h3>
 
-        <div id="nonVegItems"
-        class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+        <div id="nonveg-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
 
       </div>
 
@@ -341,722 +295,577 @@
 
   </section>
 
-  <!-- Floating Cart Button -->
-  <button id="cartBtn"
-  class="fixed bottom-24 right-4 z-50 bg-gradient-to-r from-orange-500 to-red-500 rounded-full w-16 h-16 flex items-center justify-center text-2xl glow-btn pulse-glow">
+  <!-- CART -->
+  <div class="fixed right-4 bottom-28 z-50 w-[92%] md:w-[400px] max-h-[80vh] overflow-y-auto hide-scroll">
 
-    🛒
-
-    <span id="cartCount"
-    class="absolute -top-2 -right-1 bg-white text-black text-xs font-black rounded-full px-2 py-1">
-      0
-    </span>
-
-  </button>
-
-  <!-- Cart Drawer -->
-  <div id="cartDrawer"
-  class="fixed top-0 right-0 h-full w-full sm:w-[430px] bg-[#101010] z-[100] transform translate-x-full transition-all duration-500 overflow-y-auto">
-
-    <div class="p-5 border-b border-white/10 sticky top-0 bg-[#101010] z-10">
+    <div class="glass rounded-3xl p-5 shadow-2xl border border-orange-500/20">
 
       <div class="flex justify-between items-center">
 
-        <div>
-          <h2 class="text-3xl font-black gradient-text">Your Cart</h2>
-          <p class="text-sm text-orange-100 mt-1">Ready for tasty snacks?</p>
+        <h3 class="text-2xl font-black">
+          Your Cart 🛒
+        </h3>
+
+        <div class="bg-orange-500 text-black font-bold px-3 py-1 rounded-full">
+          <span id="cart-count">0</span>
         </div>
 
-        <button id="closeCart"
-        class="w-12 h-12 rounded-full bg-white/10 text-xl">
-          ✕
-        </button>
-
       </div>
 
-    </div>
+      <div id="cart-items" class="mt-5 space-y-4"></div>
 
-    <div class="p-5">
-
-      <div id="cartItems" class="space-y-4"></div>
-
-      <div id="emptyCart"
-      class="text-center py-16 text-orange-100">
-        🛒 Your cart is empty
+      <div id="offer-message"
+        class="mt-5 rounded-2xl p-4 bg-gradient-to-r from-orange-500/20 to-yellow-500/20 border border-orange-400/30 text-sm">
       </div>
 
-      <!-- Delivery Progress -->
-      <div id="deliveryProgress"
-      class="mt-8 hidden"></div>
+      <div id="delivery-progress"
+        class="mt-4 rounded-2xl p-4 bg-white/5 border border-white/10 text-sm">
+      </div>
 
-      <!-- Offer Message -->
-      <div id="offerMessage"
-      class="mt-4 hidden"></div>
+      <div class="mt-5 border-t border-white/10 pt-5 space-y-3">
 
-      <!-- Summary -->
-      <div id="cartSummary"
-      class="mt-8 hidden">
-
-        <div class="glass rounded-3xl p-5 space-y-4">
-
-          <div class="flex justify-between">
-            <span>Item Total</span>
-            <span id="itemTotal">₹0</span>
-          </div>
-
-          <div class="flex justify-between">
-            <span>Delivery Fee</span>
-            <span id="deliveryFee">₹40</span>
-          </div>
-
-          <div class="border-t border-white/10 pt-4 flex justify-between text-xl font-black">
-            <span>Grand Total</span>
-            <span id="grandTotal">₹0</span>
-          </div>
-
+        <div class="flex justify-between">
+          <span>Item Total</span>
+          <span id="item-total">₹0</span>
         </div>
 
-        <!-- WhatsApp -->
-        <div id="whatsappArea" class="mt-6"></div>
+        <div class="flex justify-between">
+          <span>Delivery</span>
+          <span id="delivery-fee">₹0</span>
+        </div>
+
+        <div class="flex justify-between text-2xl font-black">
+          <span>Grand Total</span>
+          <span id="grand-total">₹0</span>
+        </div>
 
       </div>
+
+      <div id="shop-status" class="mt-5"></div>
+
+      <button id="whatsapp-order"
+        class="w-full mt-5 bg-gradient-to-r from-green-500 to-emerald-400 text-black py-4 rounded-2xl font-black text-lg glow-btn">
+        Order via WhatsApp
+      </button>
 
     </div>
 
   </div>
 
-  <!-- Sticky Bottom -->
-  <div class="fixed bottom-0 left-0 right-0 z-40 glass border-t border-orange-500/20">
+  <!-- Sticky Bottom Bar -->
+  <div class="fixed bottom-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-lg border-t border-white/10">
 
-    <div class="max-w-7xl mx-auto p-3 flex gap-3">
+    <div class="grid grid-cols-3 gap-2 p-3 max-w-4xl mx-auto">
 
       <a href="tel:9443992518"
-      class="flex-1 bg-gradient-to-r from-orange-500 to-red-500 py-4 rounded-2xl text-center font-black glow-btn">
-        📞 Call
+        class="bg-gradient-to-r from-orange-500 to-yellow-400 text-black rounded-2xl py-3 text-center font-black glow-btn">
+        Call
       </a>
 
       <a href="https://maps.app.goo.gl/qifggqfKZqeMwpif7?g_st=ac"
-      target="_blank"
-      class="flex-1 bg-white/10 py-4 rounded-2xl text-center font-black">
-        📍 Direction
+        target="_blank"
+        class="glass rounded-2xl py-3 text-center font-bold">
+        Direction
       </a>
+
+      <div class="glass rounded-2xl py-3 text-center font-bold text-sm">
+        94439 92518
+      </div>
 
     </div>
 
   </div>
 
-<script>
-
-const vegItems = [
-{
-name:"French Fries",
-price:60,
-pieces:"1 Plate",
-image:"images/french-fries.jpg",
-flavors:["Tangy Tomato","Butter Cheese","Peri Peri"]
-},
-{
-name:"Fried Veg Momos",
-price:60,
-pieces:"6 Pieces",
-image:"images/veg-momos.jpg"
-},
-{
-name:"Samosa",
-price:20,
-pieces:"1 Piece",
-image:"images/samosa.jpg"
-},
-{
-name:"Veg Lollipop",
-price:60,
-pieces:"4 Pieces",
-image:"images/veg-lollipop.jpg"
-},
-{
-name:"Veg Nuggets",
-price:60,
-pieces:"8 Pieces",
-image:"images/veg-nuggets.jpg"
-},
-{
-name:"Fried Veg Roll",
-price:60,
-pieces:"3 Pieces",
-image:"images/veg-roll.jpg"
-},
-{
-name:"Cheese Corn Nuggets",
-price:60,
-pieces:"6 Pieces",
-image:"images/corn-nuggets.jpg"
-},
-{
-name:"Veg Popcorn",
-sizes:{
-Small:20,
-Medium:35,
-Large:50
-},
-flavors:["Tangy Tomato","Butter Cheese","Peri Peri"],
-pieces:"Choose Size",
-image:"images/veg-popcorn.jpg"
-},
-{
-name:"Veg Burger – Single Patty",
-price:80,
-image:"images/veg-burger.jpg"
-},
-{
-name:"Veg Burger – Double Patty",
-price:120,
-image:"images/veg-double.jpg"
-}
-];
-
-const nonVegItems = [
-{
-name:"Chicken Garlic Fingers",
-price:120,
-pieces:"5 Pieces",
-image:"images/chicken-garlic.jpg"
-},
-{
-name:"Chicken Nuggets",
-price:120,
-pieces:"8 Pieces",
-image:"images/chicken-nuggets.jpg"
-},
-{
-name:"Chicken Popcorn",
-price:120,
-pieces:"20 Pieces",
-image:"images/chicken-popcorn.jpg"
-},
-{
-name:"Chicken Balls",
-price:120,
-pieces:"6 Pieces",
-image:"images/chicken-balls.jpg"
-},
-{
-name:"Chicken Breast Strips",
-price:120,
-pieces:"3 Pieces",
-image:"images/chicken-strips.jpg"
-},
-{
-name:"Chicken Fried Momos",
-price:120,
-pieces:"8 Pieces",
-image:"images/chicken-momos.jpg"
-},
-{
-name:"Chicken Lollipop",
-price:120,
-pieces:"3 Pieces",
-image:"images/chicken-lollipop.jpg"
-},
-{
-name:"Chicken Wings",
-price:120,
-pieces:"3 Pieces",
-image:"images/chicken-wings.jpg"
-},
-{
-name:"Breaded Chicken",
-price:120,
-pieces:"2 Pieces",
-image:"images/breaded-chicken.jpg"
-},
-{
-name:"Chicken Burger – Single Patty",
-price:100,
-image:"images/chicken-burger.jpg"
-},
-{
-name:"Chicken Burger – Double Patty",
-price:140,
-image:"images/chicken-double.jpg"
-}
-];
-
-const vegContainer = document.getElementById("vegItems");
-const nonVegContainer = document.getElementById("nonVegItems");
-
-function createCard(item){
-
-const id = item.name.replace(/\s+/g,'');
-
-let flavorHTML = "";
-let sizeHTML = "";
-
-if(item.flavors){
-flavorHTML = `
-<select id="flavor-${id}"
-class="w-full mt-3 bg-black/30 border border-orange-500/20 rounded-xl px-4 py-3 outline-none">
-<option value="">Select Flavor</option>
-${item.flavors.map(f=>`<option>${f}</option>`).join('')}
-</select>
-`;
-}
-
-if(item.sizes){
-sizeHTML = `
-<div class="grid grid-cols-3 gap-2 mt-3">
-${Object.entries(item.sizes).map(([size,price])=>`
-<button class="size-btn bg-white/10 border border-orange-500/20 rounded-xl py-3 font-bold"
-data-size="${size}"
-data-price="${price}">
-${size}<br>₹${price}
-</button>
-`).join('')}
-</div>
-`;
-}
-
-return `
-<div class="glass rounded-[32px] overflow-hidden card-hover reveal">
-
-<div class="relative h-52 overflow-hidden">
-<img src="${item.image}" alt="${item.name}"
-class="w-full h-full object-cover">
-
-<div class="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
-
-<div class="absolute bottom-4 left-4">
-<div class="text-2xl font-black">${item.name}</div>
-${item.pieces ? `<div class="text-orange-200 text-sm">${item.pieces}</div>`:''}
-</div>
-
-</div>
-
-<div class="p-5">
-
-${sizeHTML}
-${flavorHTML}
-
-<div class="flex items-center justify-between mt-5">
-
-<div>
-<div class="text-3xl font-black gradient-text">
-₹${item.price || 20}
-</div>
-</div>
-
-<div id="control-${id}">
-<button onclick='addItem(${JSON.stringify(item)})'
-class="bg-gradient-to-r from-orange-500 to-red-500 px-6 py-3 rounded-2xl font-black glow-btn">
-Add
-</button>
-</div>
-
-</div>
-
-</div>
-
-</div>
-`;
-}
-
-vegContainer.innerHTML = vegItems.map(createCard).join('');
-nonVegContainer.innerHTML = nonVegItems.map(createCard).join('');
-
-let cart = [];
-
-function getSelectedData(item){
-
-const id = item.name.replace(/\s+/g,'');
-
-let flavor = "";
-let size = "";
-let price = item.price || 0;
-
-if(item.flavors){
-const flavorSelect = document.getElementById(`flavor-${id}`);
-
-if(flavorSelect){
-flavor = flavorSelect.value;
-
-if(flavor === ""){
-alert("Please select flavor");
-return null;
-}
-}
-}
-
-if(item.sizes){
-
-const activeBtn = document.querySelector(`#control-${id}`).parentElement.parentElement.querySelector('.size-btn.active-size');
-
-if(!activeBtn){
-alert("Please select size");
-return null;
-}
-
-size = activeBtn.dataset.size;
-price = Number(activeBtn.dataset.price);
-}
-
-return {
-flavor,
-size,
-price
-};
-}
-
-document.addEventListener('click', function(e){
-
-if(e.target.classList.contains('size-btn')){
-
-const parent = e.target.parentElement;
-
-parent.querySelectorAll('.size-btn').forEach(btn=>{
-btn.classList.remove('active-size','bg-orange-500');
-});
-
-e.target.classList.add('active-size','bg-orange-500');
-
-}
-});
+  <script>
+
+    const vegItems = [
+      {
+        name:"French Fries",
+        price:60,
+        pieces:"1 Plate",
+        image:"images/french-fries.jpg",
+        flavors:["Tangy Tomato","Butter Cheese","Peri Peri"]
+      },
+      {
+        name:"Fried Veg Momos",
+        price:60,
+        pieces:"6 Pieces",
+        image:"images/fried-veg-momos.jpg"
+      },
+      {
+        name:"Samosa",
+        price:20,
+        pieces:"1 Piece",
+        image:"images/samosa.jpg"
+      },
+      {
+        name:"Veg Lollipop",
+        price:60,
+        pieces:"4 Pieces",
+        image:"images/veg-lollipop.jpg"
+      },
+      {
+        name:"Veg Nuggets",
+        price:60,
+        pieces:"8 Pieces",
+        image:"images/veg-nuggets.jpg"
+      },
+      {
+        name:"Fried Veg Roll",
+        price:60,
+        pieces:"3 Pieces",
+        image:"images/fried-veg-roll.jpg"
+      },
+      {
+        name:"Cheese Corn Nuggets",
+        price:60,
+        pieces:"6 Pieces",
+        image:"images/cheese-corn.jpg"
+      },
+      {
+        name:"Veg Popcorn",
+        sizes:{
+          Small:20,
+          Medium:35,
+          Large:50
+        },
+        flavors:["Tangy Tomato","Butter Cheese","Peri Peri"],
+        image:"images/veg-popcorn.jpg"
+      },
+      {
+        name:"Veg Burger - Single Patty",
+        price:80,
+        image:"images/veg-burger-single.jpg"
+      },
+      {
+        name:"Veg Burger - Double Patty",
+        price:120,
+        image:"images/veg-burger-double.jpg"
+      }
+    ];
+
+    const nonVegItems = [
+      ["Chicken Garlic Fingers",120,"5 Pieces"],
+      ["Chicken Nuggets",120,"8 Pieces"],
+      ["Chicken Popcorn",120,"20 Pieces"],
+      ["Chicken Balls",120,"6 Pieces"],
+      ["Chicken Breast Strips",120,"3 Pieces"],
+      ["Chicken Fried Momos",120,"8 Pieces"],
+      ["Chicken Lollipop",120,"3 Pieces"],
+      ["Chicken Wings",120,"3 Pieces"],
+      ["Breaded Chicken",120,"2 Pieces"],
+      ["Chicken Burger - Single Patty",100,""],
+      ["Chicken Burger - Double Patty",140,""]
+    ];
+
+    const cart = [];
+
+    const vegGrid = document.getElementById("veg-grid");
+    const nonvegGrid = document.getElementById("nonveg-grid");
+
+    function createCard(item){
+
+      const card = document.createElement("div");
+      card.className = "glass rounded-3xl overflow-hidden card-hover";
+
+      let flavorHTML = "";
+      let sizeHTML = "";
+
+      if(item.flavors){
+        flavorHTML = `
+          <select class="flavor-select mt-3 w-full bg-black/40 rounded-xl p-3 border border-white/10">
+            <option value="">Select Flavor</option>
+            ${item.flavors.map(f=>`<option>${f}</option>`).join("")}
+          </select>
+        `;
+      }
 
-function addItem(item){
+      if(item.sizes){
+        sizeHTML = `
+          <select class="size-select mt-3 w-full bg-black/40 rounded-xl p-3 border border-white/10">
+            <option value="">Select Size</option>
+            ${Object.entries(item.sizes).map(([k,v])=>`<option value="${v}">${k} - ₹${v}</option>`).join("")}
+          </select>
+        `;
+      }
 
-const selected = getSelectedData(item);
+      card.innerHTML = `
+        <img src="${item.image}" class="h-56 w-full object-cover">
 
-if(!selected) return;
+        <div class="p-5">
 
-const uniqueKey = `${item.name}-${selected.size}-${selected.flavor}`;
+          <div class="flex justify-between items-start gap-3">
 
-const existing = cart.find(i => i.key === uniqueKey);
+            <div>
+              <h4 class="text-2xl font-black">${item.name}</h4>
+              <p class="text-gray-400 mt-1">${item.pieces || ""}</p>
+            </div>
 
-if(existing){
-existing.qty += 1;
-}else{
-cart.push({
-key:uniqueKey,
-name:item.name,
-size:selected.size,
-flavor:selected.flavor,
-price:selected.price,
-qty:1
-});
-}
+            <div class="text-orange-400 font-black text-2xl">
+              ₹${item.price || "20+"}
+            </div>
 
-renderCart();
-}
+          </div>
 
-function increaseQty(key){
-const item = cart.find(i=>i.key===key);
-item.qty++;
-renderCart();
-}
+          ${sizeHTML}
+          ${flavorHTML}
 
-function decreaseQty(key){
-const item = cart.find(i=>i.key===key);
+          <div class="mt-5">
 
-item.qty--;
+            <button class="add-btn w-full bg-gradient-to-r from-orange-500 to-yellow-400 text-black py-3 rounded-2xl font-black glow-btn">
+              Add
+            </button>
 
-if(item.qty <= 0){
-cart = cart.filter(i=>i.key!==key);
-}
+          </div>
 
-renderCart();
-}
+        </div>
+      `;
 
-const cartItems = document.getElementById("cartItems");
-const cartCount = document.getElementById("cartCount");
+      const addBtn = card.querySelector(".add-btn");
 
-function renderCart(){
+      addBtn.addEventListener("click", ()=>{
 
-cartCount.innerText = cart.reduce((a,b)=>a+b.qty,0);
+        const flavorSelect = card.querySelector(".flavor-select");
+        const sizeSelect = card.querySelector(".size-select");
 
-if(cart.length===0){
-document.getElementById("emptyCart").style.display="block";
-document.getElementById("cartSummary").style.display="none";
-document.getElementById("deliveryProgress").style.display="none";
-document.getElementById("offerMessage").style.display="none";
-cartItems.innerHTML="";
-return;
-}
+        let flavor = flavorSelect ? flavorSelect.value : "";
+        let size = sizeSelect ? sizeSelect.options[sizeSelect.selectedIndex]?.text.split(" - ")[0] : "";
 
-document.getElementById("emptyCart").style.display="none";
-document.getElementById("cartSummary").style.display="block";
-document.getElementById("deliveryProgress").style.display="block";
-document.getElementById("offerMessage").style.display="block";
+        if(flavorSelect && !flavor){
+          alert("Please select flavor");
+          return;
+        }
 
-cartItems.innerHTML = cart.map(item=>`
+        if(sizeSelect && !sizeSelect.value){
+          alert("Please select size");
+          return;
+        }
 
-<div class="glass rounded-3xl p-4">
+        let price = item.price || Number(sizeSelect.value);
 
-<div class="flex justify-between gap-3">
+        const key = `${item.name}-${size}-${flavor}`;
 
-<div>
+        const existing = cart.find(c=>c.key===key);
 
-<div class="font-black text-lg">${item.name}</div>
+        if(existing){
+          existing.qty++;
+        }else{
+          cart.push({
+            key,
+            name:item.name,
+            flavor,
+            size,
+            qty:1,
+            price
+          });
+        }
 
-<div class="text-orange-200 text-sm">
-${item.size ? item.size:''}
-${item.size && item.flavor ? ' - ':''}
-${item.flavor ? item.flavor:''}
-</div>
+        updateCart();
 
-<div class="mt-2 font-bold gradient-text">
-₹${item.price}
-</div>
+      });
 
-</div>
+      return card;
+    }
 
-<div class="flex items-center gap-2">
+    vegItems.forEach(item=>{
+      vegGrid.appendChild(createCard(item));
+    });
 
-<button onclick="decreaseQty('${item.key}')"
-class="w-10 h-10 rounded-full bg-white/10">-</button>
+    nonVegItems.forEach(item=>{
 
-<div class="font-black">${item.qty}</div>
+      const card = createCard({
+        name:item[0],
+        price:item[1],
+        pieces:item[2],
+        image:`images/${item[0].toLowerCase().replaceAll(" ","-")}.jpg`
+      });
 
-<button onclick="increaseQty('${item.key}')"
-class="w-10 h-10 rounded-full bg-orange-500">+</button>
+      nonvegGrid.appendChild(card);
 
-</div>
+    });
 
-</div>
+    function updateCart(){
 
-</div>
+      const cartItems = document.getElementById("cart-items");
 
-`).join('');
+      cartItems.innerHTML = "";
 
-const itemTotal = cart.reduce((sum,item)=>sum+(item.price*item.qty),0);
+      let itemTotal = 0;
+      let totalQty = 0;
 
-let deliveryFee = 40;
+      cart.forEach((item,index)=>{
 
-if(itemTotal >= 300){
-deliveryFee = 0;
-}
+        const subtotal = item.qty * item.price;
+        itemTotal += subtotal;
+        totalQty += item.qty;
 
-const grandTotal = itemTotal + deliveryFee;
+        const itemBox = document.createElement("div");
 
-document.getElementById("itemTotal").innerText = `₹${itemTotal}`;
+        itemBox.className = "bg-white/5 rounded-2xl p-4";
 
-document.getElementById("deliveryFee").innerHTML =
-deliveryFee===0
-? `<span class="line-through text-red-300">₹40</span> <span class="text-green-400 font-black">FREE</span>`
-: `₹40`;
+        itemBox.innerHTML = `
+          <div class="flex justify-between gap-3">
 
-document.getElementById("grandTotal").innerText = `₹${grandTotal}`;
+            <div>
 
-const deliveryProgress = document.getElementById("deliveryProgress");
+              <h4 class="font-bold">
+                ${item.name}
+              </h4>
 
-if(itemTotal < 300){
+              <p class="text-sm text-gray-400 mt-1">
+                ${item.size ? item.size : ""}
+                ${item.flavor ? " - " + item.flavor : ""}
+              </p>
 
-const remain = 300 - itemTotal;
+              <p class="mt-2 text-orange-400 font-bold">
+                ₹${item.price}
+              </p>
 
-deliveryProgress.innerHTML = `
-<div class="glass rounded-3xl p-5 border border-orange-500/20">
+            </div>
 
-<div class="font-bold text-orange-100 mb-3">
-Add ₹${remain} more to unlock FREE Delivery 🚚
-</div>
+            <div class="flex items-center gap-3">
 
-<div class="w-full h-3 bg-white/10 rounded-full overflow-hidden">
-<div class="h-full bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full"
-style="width:${(itemTotal/300)*100}%"></div>
-</div>
+              <button onclick="decreaseQty(${index})"
+                class="w-9 h-9 rounded-full bg-red-500 font-black">
+                -
+              </button>
 
-</div>
-`;
+              <span class="font-black text-lg">
+                ${item.qty}
+              </span>
 
-}else{
+              <button onclick="increaseQty(${index})"
+                class="w-9 h-9 rounded-full bg-green-500 font-black">
+                +
+              </button>
 
-deliveryProgress.innerHTML = `
-<div class="bg-green-500/20 border border-green-400 rounded-3xl p-5 text-center">
+            </div>
 
-<div class="text-2xl font-black text-green-400">
-🎉 FREE Delivery Unlocked
-</div>
+          </div>
+        `;
 
-</div>
-`;
+        cartItems.appendChild(itemBox);
 
-}
+      });
 
-const offerMessage = document.getElementById("offerMessage");
+      const delivery = itemTotal === 0 ? 0 : itemTotal >= 300 ? 0 : 40;
 
-if(itemTotal < 180){
+      const grandTotal = itemTotal + delivery;
 
-offerMessage.innerHTML = `
-<div class="glass rounded-3xl p-5 border border-yellow-500/20">
-Add ₹${180-itemTotal} more to get FREE Limonata 🥤
-</div>
-`;
+      document.getElementById("cart-count").innerText = totalQty;
+      document.getElementById("item-total").innerText = `₹${itemTotal}`;
 
-}else if(itemTotal >=180 && itemTotal <300){
+      if(itemTotal >= 300){
+        document.getElementById("delivery-fee").innerHTML =
+          `<span class="line-through text-red-400">₹40</span> <span class="text-green-400 font-bold">FREE</span>`;
+      }else{
+        document.getElementById("delivery-fee").innerText = `₹${delivery}`;
+      }
 
-offerMessage.innerHTML = `
-<div class="glass rounded-3xl p-5 border border-orange-500/20">
+      document.getElementById("grand-total").innerText = `₹${grandTotal}`;
 
-<div class="text-green-400 font-black">
-✅ You unlocked FREE Limonata!
-</div>
+      updateOffers(itemTotal);
+      updateDeliveryProgress(itemTotal);
 
-<div class="mt-2">
-Add ₹${300-itemTotal} more to unlock FREE Cold Drink + FREE Delivery 🚚
-</div>
+    }
 
-</div>
-`;
+    function increaseQty(index){
+      cart[index].qty++;
+      updateCart();
+    }
 
-}else{
+    function decreaseQty(index){
+      cart[index].qty--;
 
-offerMessage.innerHTML = `
-<div class="bg-green-500/20 border border-green-400 rounded-3xl p-5 text-center">
+      if(cart[index].qty <= 0){
+        cart.splice(index,1);
+      }
 
-<div class="text-green-400 text-xl font-black">
-🎉 You unlocked FREE Cold Drink + FREE Delivery
-</div>
+      updateCart();
+    }
 
-</div>
-`;
+    function updateOffers(total){
 
-}
+      const offer = document.getElementById("offer-message");
 
-renderWhatsapp(grandTotal,itemTotal,deliveryFee);
+      if(total >= 300){
 
-}
+        offer.innerHTML = `
+          <div class="text-green-400 font-black text-lg">
+            🎉 You unlocked FREE Cold Drink + FREE Delivery
+          </div>
+        `;
 
-function renderWhatsapp(grandTotal,itemTotal,deliveryFee){
+      }else if(total >= 180){
 
-const now = new Date();
-const hour = now.getHours();
+        offer.innerHTML = `
+          <div class="font-bold text-yellow-300">
+            🎉 You unlocked FREE Limonata!
+          </div>
 
-const whatsappArea = document.getElementById("whatsappArea");
+          <div class="mt-2">
+            Add ₹${300-total} more to unlock FREE Cold Drink + FREE Delivery
+          </div>
+        `;
 
-if(hour < 16 || hour >= 21){
+      }else{
 
-whatsappArea.innerHTML = `
-<div class="glass rounded-3xl p-5 text-center border border-red-500/20">
+        offer.innerHTML = `
+          <div>
+            Add ₹${180-total} more to get FREE Limonata 🍋
+          </div>
+        `;
 
-<div class="text-2xl font-black text-red-400">
-Shop Closed Now
-</div>
+      }
 
-<div class="mt-2 text-orange-100">
-Orders Available Between 4 PM – 9 PM
-</div>
+    }
 
-</div>
-`;
+    function updateDeliveryProgress(total){
 
-return;
-}
+      const box = document.getElementById("delivery-progress");
 
-let orderText = `Hello Nalam Mini Mart Snacks,%0A%0AI want to order:%0A%0A`;
+      if(total >= 300){
 
-cart.forEach(item=>{
-orderText += `- ${item.name}`;
+        box.innerHTML = `
+          <div class="text-green-400 font-black">
+            🎉 FREE Delivery Unlocked
+          </div>
+        `;
 
-if(item.size || item.flavor){
-orderText += ` (${item.size || ''}${item.size && item.flavor ? ' - ':''}${item.flavor || ''})`;
-}
+      }else{
 
-orderText += ` x${item.qty} = ₹${item.price*item.qty}%0A`;
-});
+        box.innerHTML = `
+          <div>
+            Add ₹${300-total} more to unlock FREE Delivery 🚚
+          </div>
+        `;
 
-orderText += `%0AItem Total: ₹${itemTotal}`;
+      }
 
-if(deliveryFee===0){
-orderText += `%0ADelivery: FREE`;
-}else{
-orderText += `%0ADelivery: ₹40`;
-}
+    }
 
-orderText += `%0AGrand Total: ₹${grandTotal}`;
+    // WhatsApp
+    document.getElementById("whatsapp-order").addEventListener("click", ()=>{
 
-if(itemTotal>=300){
-orderText += `%0AOffer: FREE Cold Drink + FREE Delivery`;
-}else if(itemTotal>=180){
-orderText += `%0AOffer: FREE Limonata`;
-}
+      if(cart.length===0){
+        alert("Cart is empty");
+        return;
+      }
 
-orderText += `%0A%0APlease confirm my order.`;
+      let itemTotal = 0;
 
-whatsappArea.innerHTML = `
-<a href="https://wa.me/919443992518?text=${orderText}"
-target="_blank"
-class="block w-full bg-gradient-to-r from-green-500 to-green-700 py-5 rounded-3xl text-center font-black text-xl glow-btn pulse-glow">
+      let message = `Hello Nalam Mini Mart Snacks,%0A%0AI want to order:%0A%0A`;
 
-💬 Order via WhatsApp
+      cart.forEach(item=>{
 
-</a>
-`;
-}
+        const subtotal = item.qty * item.price;
 
-const timingNotice = document.getElementById("timingNotice");
+        itemTotal += subtotal;
 
-function timingLogic(){
+        message += `${item.name}`;
 
-const now = new Date();
-const hour = now.getHours();
+        if(item.size || item.flavor){
 
-if(hour >=16 && hour <21){
+          message += ` (`;
 
-timingNotice.innerHTML = `
-<div class="text-3xl font-black text-green-400">
-🟢 Orders Open Now
-</div>
+          if(item.size){
+            message += item.size;
+          }
 
-<div class="mt-2 text-orange-100">
-Fast evening snacks delivery available now
-</div>
-`;
+          if(item.flavor){
+            message += `${item.size ? " - " : ""}${item.flavor}`;
+          }
 
-}else{
+          message += `)`;
 
-timingNotice.innerHTML = `
-<div class="text-3xl font-black text-red-400">
-🔴 Shop Closed Now
-</div>
+        }
 
-<div class="mt-2 text-orange-100">
-Orders Open at 4 PM • Available Until 9 PM
-</div>
-`;
+        message += ` x${item.qty} = ₹${subtotal}%0A`;
 
-}
+      });
 
-}
+      const delivery = itemTotal >= 300 ? 0 : 40;
+      const grand = itemTotal + delivery;
 
-timingLogic();
+      message += `%0AItem Total: ₹${itemTotal}%0A`;
+      message += `Delivery: ₹${delivery}%0A`;
+      message += `Grand Total: ₹${grand}%0A%0A`;
 
-document.getElementById("cartBtn").onclick = ()=>{
-document.getElementById("cartDrawer").classList.add("cart-open");
-};
+      if(itemTotal >= 300){
+        message += `Offer Unlocked: FREE Cold Drink + FREE Delivery%0A`;
+      }else if(itemTotal >= 180){
+        message += `Offer Unlocked: FREE Limonata%0A`;
+      }
 
-document.getElementById("closeCart").onclick = ()=>{
-document.getElementById("cartDrawer").classList.remove("cart-open");
-};
+      message += `%0APlease confirm my order.`;
 
-const reveals = document.querySelectorAll('.reveal');
+      window.open(`https://wa.me/919443992518?text=${message}`);
 
-function revealSections(){
+    });
 
-reveals.forEach(section=>{
+    // Timing Logic
+    function checkShopTiming(){
 
-const windowHeight = window.innerHeight;
-const revealTop = section.getBoundingClientRect().top;
+      const now = new Date();
+      const hour = now.getHours();
 
-if(revealTop < windowHeight - 80){
-section.classList.add('active');
-}
+      const status = document.getElementById("shop-status");
+      const button = document.getElementById("whatsapp-order");
 
-});
+      if(hour >= 16 && hour < 21){
 
-}
+        status.innerHTML = `
+          <div class="bg-green-500/20 border border-green-400/30 rounded-2xl p-4 text-green-300 text-center font-bold">
+            🟢 Orders Open Now
+          </div>
+        `;
 
-window.addEventListener('scroll', revealSections);
+        button.style.display = "block";
 
-revealSections();
+      }else{
 
-</script>
+        status.innerHTML = `
+          <div class="bg-red-500/20 border border-red-400/30 rounded-2xl p-4 text-center">
+            <div class="text-red-300 font-black">
+              Shop Closed Now
+            </div>
+
+            <div class="text-sm text-gray-300 mt-2">
+              Orders Available Between 4 PM – 9 PM
+            </div>
+
+            <div class="mt-2 text-yellow-300">
+              Orders Open at 4 PM
+            </div>
+          </div>
+        `;
+
+        button.style.display = "none";
+
+      }
+
+    }
+
+    checkShopTiming();
+
+    // Reveal Animations
+    const reveals = document.querySelectorAll(".reveal");
+
+    window.addEventListener("scroll", ()=>{
+
+      reveals.forEach(el=>{
+
+        const top = el.getBoundingClientRect().top;
+
+        if(top < window.innerHeight - 100){
+          el.classList.add("active");
+        }
+
+      });
+
+    });
+
+  </script>
 
 </body>
 </html>
